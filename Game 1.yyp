@@ -37,7 +37,6 @@
     {"id":{"name":"bebasNeue","path":"fonts/bebasNeue/bebasNeue.yy",},},
     {"id":{"name":"objCharacter","path":"objects/objCharacter/objCharacter.yy",},},
     {"id":{"name":"objCrate","path":"objects/objCrate/objCrate.yy",},},
-    {"id":{"name":"objParBlocker","path":"objects/objParBlocker/objParBlocker.yy",},},
     {"id":{"name":"objTarget","path":"objects/objTarget/objTarget.yy",},},
     {"id":{"name":"objWall","path":"objects/objWall/objWall.yy",},},
     {"id":{"name":"rmGame","path":"rooms/rmGame/rmGame.yy",},},
