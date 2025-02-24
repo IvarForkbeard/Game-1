@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"golfClap6",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":5.003938,
+  "name":"golfClap6",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"golfClap6.ogg",
+  "type":0,
+  "volume":1.0,
+}
