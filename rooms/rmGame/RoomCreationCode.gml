@@ -1,6 +1,6 @@
 randomise()
 global.gridSize = 64
-global.numberOfBoxes = 9
+global.numberOfBoxes = ceil((global.level / 7) * 3)
 
 // # = wall - = floor @ = player $ = box . = target * = box on target & = player on target
 
@@ -16,7 +16,7 @@ i = 1
 pathX = irandom(7) + 1
 pathY = irandom(7) + 1
 global.playgrid[pathX, pathY] = 0
-while (i < 64 - global.level){
+while (i < global.level + 10){
     switch(irandom(3)){
         case 0:
             if (pathY > 1){

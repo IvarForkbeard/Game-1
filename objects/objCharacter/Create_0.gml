@@ -30,3 +30,23 @@ for (i = 0; i < numberOfSteps; i++){
         }
     }
 }
+
+//check if the player is surrounded and if so, restart the room to ensure max scrambling.
+isPlayable = false
+if (global.playgrid[global.characterX + 1, global.characterY] == 0){
+    isPlayable = true
+}
+if (global.playgrid[global.characterX - 1, global.characterY] == 0){
+    isPlayable = true
+}
+
+if (global.playgrid[global.characterX, global.characterY + 1] == 0){
+    isPlayable = true
+}
+
+if (global.playgrid[global.characterX, global.characterY - 1] == 0){
+    isPlayable = true
+}
+if (!isPlayable){
+    room_restart()
+}

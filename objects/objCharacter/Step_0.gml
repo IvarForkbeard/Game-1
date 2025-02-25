@@ -9,7 +9,7 @@ for (i = 0; i < 10; i++){
 }
 
 // Increment level if the puzzle is complete
-if (global.puzzleComplete) {
+if (global.puzzleComplete) { 
     global.level++
     audio_play_sound(golfClap6, 4, false)
     room_restart()
