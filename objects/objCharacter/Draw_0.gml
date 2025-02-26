@@ -6,14 +6,6 @@ draw_self()
 //destroy all crates
 instance_destroy(objCrate)
 
-// Display info text
-window_set_caption("Stephen's Happy Fun Time Game Level: " + string(global.level))
-draw_set_font(bebasNeue)
-draw_set_halign(fa_center)
-draw_set_colour(c_yellow)
-draw_text(320, 600, "Stephen's Happy Fun Time Game Level: " + string(global.level))
-draw_text(320, 620, "Steps: " + string(global.numberOfSteps))
-
 //draw the crates
 for (i = 0; i < 10; i++){
     for (j = 0; j < 10;  j++){
@@ -22,6 +14,14 @@ for (i = 0; i < 10; i++){
         }
     }
 }
+
+// Display info text
+window_set_caption("Stephen's Happy Fun Time Game Level: " + string(global.level))
+draw_set_font(bebasNeue)
+draw_set_halign(fa_center)
+draw_set_colour(c_yellow)
+draw_text(320, 580, "Stephen's Happy Fun Time Game Level: " + string(global.level))
+draw_text(320, 610, "Steps: " + string(global.numberOfSteps))
 
 //draw the playGrid array for debugging.  Comment or uncomment as required.
 /*

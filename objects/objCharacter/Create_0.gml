@@ -1,4 +1,6 @@
 //player pulls blocks around randomly to set up playable surface
+spacePause = 0
+global.numberOfSteps = 999
 for (i = 0; i <= global.numberOfSteps; i++){
     global.dx = 0
     global.dy = 0

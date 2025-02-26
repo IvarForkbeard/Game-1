@@ -1,0 +1,3 @@
+/// @description
+
+spacePause = 0
