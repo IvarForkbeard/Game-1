@@ -8,10 +8,12 @@ for (i = 0; i < 10; i++){
     }
 }
 
-// Increment level if the puzzle is complete
-if (global.puzzleComplete) { 
-    global.level++
-    audio_play_sound(golfClap6, 4, false)
+// Increment level if the puzzle is complete due to player interaction, just restart if not.
+if (global.puzzleComplete) {
+    if (global.hasMoved){
+        global.level++
+        audio_play_sound(golfClap6, 4, false)
+    }
     room_restart()
 }
 
@@ -22,6 +24,6 @@ if keyboard_check_pressed(vk_space){
 }
 
 // loop music
-if !(audio_is_playing(music7)){
-    audio_play_sound(music7, 5, true)
+if !(audio_is_playing(theme)){
+    audio_play_sound(theme, 5, true)
 }

@@ -1,16 +1,16 @@
 {
   "$GMSound":"",
-  "%Name":"music7",
+  "%Name":"theme",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
-  "bitDepth":0,
-  "bitRate":64,
+  "bitDepth":1,
+  "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":212.95021,
-  "name":"music7",
+  "duration":140.78258,
+  "name":"theme",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -18,8 +18,8 @@
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
-  "sampleRate":22050,
-  "soundFile":"music7.ogg",
+  "sampleRate":44100,
+  "soundFile":"theme.ogg",
   "type":0,
   "volume":1.0,
 }

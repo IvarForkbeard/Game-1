@@ -1,7 +1,11 @@
 //player pulls blocks around randomly to set up playable surface
+global.numberOfSteps = 9999
 
-numberOfSteps = 9999
-for (i = 0; i < numberOfSteps; i++){
+//clear history
+for (i = 0; i < array_length(global.history); i++){
+    global.history[i] = 0
+}
+for (i = 0; i < global.numberOfSteps; i++){
     global.dx = 0
     global.dy = 0
     switch(irandom(3)){
@@ -28,6 +32,7 @@ for (i = 0; i < numberOfSteps; i++){
             global.playgrid[global.characterX - (global.dx * 2), global.characterY - (global.dy * 2)] -= 2
             global.playgrid[global.characterX - global.dx, global.characterY - global.dy] += 2
         }
+        global.history[global.numberOfSteps] = global.playgrid
     }
 }
 
@@ -50,3 +55,5 @@ if (global.playgrid[global.characterX, global.characterY - 1] == 0){
 if (!isPlayable){
     room_restart()
 }
+global.hasMoved = false
+global.history[global.numberOfSteps] = global.playgrid

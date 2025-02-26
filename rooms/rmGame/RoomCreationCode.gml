@@ -1,6 +1,4 @@
-randomise()
-global.gridSize = 64
-global.numberOfBoxes = ceil((global.level / 7) * 3)
+global.numberOfBoxes = 1 + ceil((global.level / 9) * 3)
 
 // # = wall - = floor @ = player $ = box . = target * = box on target & = player on target
 

@@ -1,26 +1,43 @@
 // Get input
 global.dx = 0
 global.dy = 0
+global.history[global.numberOfSteps] = global.playgrid
 switch(keyboard_key){
     case vk_left:
         global.dx = -1
         global.dy = 0
-        //numberOfSteps++
+        global.numberOfSteps++
+        global.hasMoved = true
     break
     case vk_up:
         global.dx = 0
         global.dy = -1
-        //numberOfSteps++
+        global.numberOfSteps++
+        global.hasMoved = true
     break
     case vk_right:
         global.dx = 1
         global.dy = 0
-        //numberOfSteps++
+        global.numberOfSteps++
+        global.hasMoved = true
     break
     case vk_down:
         global.dx = 0
         global.dy = 1
-        //numberOfSteps++
+        global.numberOfSteps++
+        global.hasMoved = true
+    break
+    case vk_escape:
+        global.numberOfSteps--
+        global.playgrid = global.history[global.numberOfSteps]
+        /*for (i = 0; i < 10; i++){
+            for(j = 0; j < 10; j++){
+                if ((global.playgrid[i, j] == 8) || (global.playgrid[i, j] == 12)){
+                    global.characterX = i
+                    global.characterY = j
+                }
+            }
+        }*/
     break
     case vk_space:
         audio_play_sound(sadTrombone8, 2, false)
@@ -37,7 +54,7 @@ if (global.playgrid[global.characterX + global.dx, global.characterY + global.dy
         global.characterX += global.dx
         global.characterY += global.dy
         global.playgrid[global.characterX, global.characterY] += 8
-        numberOfSteps++
+        global.history[global.numberOfSteps] = global.playgrid
     }
     
     //check if no crate or wall beyond the current crate
@@ -55,5 +72,6 @@ if (global.playgrid[global.characterX + global.dx, global.characterY + global.dy
         global.characterX += global.dx
         global.characterY += global.dy
         global.playgrid[global.characterX, global.characterY] += 8
+        global.history[global.numberOfSteps] = global.playgrid
     }
 }

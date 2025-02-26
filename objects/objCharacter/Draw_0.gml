@@ -12,6 +12,7 @@ draw_set_font(bebasNeue)
 draw_set_halign(fa_center)
 draw_set_colour(c_yellow)
 draw_text(320, 600, "Stephen's Happy Fun Time Game Level: " + string(global.level))
+draw_text(320, 620, "Steps: " + string(global.numberOfSteps))
 
 //draw the crates
 for (i = 0; i < 10; i++){
