@@ -1,8 +1,4 @@
-/// @description
-
-while (spacePause < 1000000){
-    spacePause++
-}
+//fast unwind
 if (global.numberOfSteps > 2){
     global.numberOfSteps--
 }

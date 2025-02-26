@@ -21,7 +21,7 @@ draw_set_font(bebasNeue)
 draw_set_halign(fa_center)
 draw_set_colour(c_yellow)
 draw_text(320, 580, "Stephen's Happy Fun Time Game Level: " + string(global.level))
-draw_text(320, 610, "Steps: " + string(global.numberOfSteps))
+draw_text(320, 610, "Steps: " + string(global.numberOfSteps - 999))
 
 //draw the playGrid array for debugging.  Comment or uncomment as required.
 /*

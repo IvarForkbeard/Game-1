@@ -31,6 +31,19 @@ switch(keyboard_key){
         global.numberOfSteps++
         global.hasMoved = true
     break
+    case vk_space:
+        if (global.numberOfSteps > 2){
+            global.numberOfSteps--
+        }
+        for (i = 0; i < 10; i++){
+            for(j = 0; j < 10; j++){
+                if ((global.playgrid[i][j][global.numberOfSteps]) == 8 || (global.playgrid[i][j][global.numberOfSteps] == 12)){
+                    global.characterX = i
+                    global.characterY = j
+                }
+            }
+        }
+    break
 }
 
 //check if we're trying to step into a wall
