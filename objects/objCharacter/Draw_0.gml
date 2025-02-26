@@ -17,8 +17,19 @@ draw_text(320, 620, "Steps: " + string(global.numberOfSteps))
 //draw the crates
 for (i = 0; i < 10; i++){
     for (j = 0; j < 10;  j++){
-        if ((global.playgrid[i, j] == 2) || (global.playgrid[i, j] = 6)){
+        if ((global.playgrid[i][j][global.numberOfSteps] == 2) || (global.playgrid[i][j][global.numberOfSteps] = 6)){
             instance_create_layer(32 + (i * 64), 32 + (j * 64), "Instances", objCrate)
         }
     }
 }
+
+//draw the playGrid array for debugging.  Comment or uncomment as required.
+/*
+
+for (i = 0; i < 10; i++){
+    for (j = 0; j < 10;  j++){
+        draw_text(32 + i * 32, 32 + j * 32, global.playgrid[i][j][global.numberOfSteps-1])
+    }
+}
+
+*/

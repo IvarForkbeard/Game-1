@@ -5,7 +5,7 @@ global.numberOfBoxes = 1 + ceil((global.level / 9) * 3)
 // create global.playgrid
 for (i = 0; i < 10; i++){
     for (j = 0; j < 10; j++){
-        global.playgrid[i, j] = 1
+        global.playgrid[i][j][0] = 1
     }
 }
 
@@ -13,7 +13,7 @@ for (i = 0; i < 10; i++){
 i = 1
 pathX = irandom(7) + 1
 pathY = irandom(7) + 1
-global.playgrid[pathX, pathY] = 0
+global.playgrid[pathX][pathY][0] = 0
 while (i < global.level + 10){
     switch(irandom(3)){
         case 0:
@@ -37,8 +37,8 @@ while (i < global.level + 10){
             }
         break
     }
-    if (global.playgrid[pathX, pathY] == 1){
-        global.playgrid[pathX, pathY] = 0
+    if (global.playgrid[pathX][pathY][0] == 1){
+        global.playgrid[pathX][pathY][0] = 0
         i++
     }
 }
@@ -48,8 +48,8 @@ playerHasBeenPlaced = false
 while (!playerHasBeenPlaced){
     global.characterX = irandom(7) + 1
     global.characterY = irandom(7) + 1
-    if (global.playgrid[global.characterX, global.characterY] == 0){
-        global.playgrid[global.characterX, global.characterY] = 8
+    if (global.playgrid[global.characterX][global.characterY][0] == 0){
+        global.playgrid[global.characterX][global.characterY][0] = 8
         playerHasBeenPlaced = true
     }
 }
@@ -59,8 +59,8 @@ i = 0
 while (i < global.numberOfBoxes){
     targetX = irandom(7) + 1
     targetY = irandom(7) + 1
-    if (global.playgrid[targetX, targetY] == 0){
-        global.playgrid[targetX, targetY]+= 6
+    if (global.playgrid[targetX][targetY][0] == 0){
+        global.playgrid[targetX][targetY][0]+= 6
         i++
     }
 }
@@ -68,7 +68,7 @@ while (i < global.numberOfBoxes){
 //now put actual objects onto the play surface except crates, which are redrawn every clock cycle
 for (i = 0; i < 10; i++){
     for (j = 0; j < 10; j++){
-        switch(global.playgrid[i, j]){
+        switch(global.playgrid[i][j][0]){
             case 1:
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objWall)
             break

@@ -43,7 +43,6 @@
     {"id":{"name":"rmSetup","path":"rooms/rmSetup/rmSetup.yy",},},
     {"id":{"name":"blockMove5","path":"sounds/blockMove5/blockMove5.yy",},},
     {"id":{"name":"golfClap6","path":"sounds/golfClap6/golfClap6.yy",},},
-    {"id":{"name":"sadTrombone8","path":"sounds/sadTrombone8/sadTrombone8.yy",},},
     {"id":{"name":"theme","path":"sounds/theme/theme.yy",},},
     {"id":{"name":"sprCharacter","path":"sprites/sprCharacter/sprCharacter.yy",},},
     {"id":{"name":"sprCrate","path":"sprites/sprCrate/sprCrate.yy",},},
