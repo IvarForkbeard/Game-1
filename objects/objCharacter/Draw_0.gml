@@ -23,6 +23,9 @@ draw_set_colour(c_yellow)
 draw_text(320, 580, "Stephen's Happy Fun Time Game Level: " + string(global.level))
 draw_text(320, 610, "Steps: " + string(global.numberOfSteps - 999))
 
+//draw the text of some variables
+//draw_text(320, 32, "Here's X, Y, dX, dY :" + string (global.characterX) + ", " + string (global.characterY) + ", " + string (global.dx) + ", " + string (global.dy))
+
 //draw the playGrid array for debugging.  Comment or uncomment as required.
 /*
 

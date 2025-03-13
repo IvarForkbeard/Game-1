@@ -46,11 +46,46 @@ switch(keyboard_key){
     break
 }
 
-//make sure we're not stepping onto the outer "skirt"
-//if (((global.characterX + global.dx) != 0) && ((global.characterX + global.dx) != 9) && (((global.characterX + global.dx) == 0) || ((global.characterX + global.dx) == 0))) {
-    
-//}  
+//move the character as long as it hasn't stepped onto the skirt
+    global.playgrid[global.characterX][global.characterY][global.numberOfSteps] -= 7
+    global.characterX += global.dx
+    global.characterY += global.dy
+    global.playgrid[global.characterX][global.characterY][global.numberOfSteps] += 7
 
+    //if the character is on a crate, then push that crate ahead
+    if ((global.playgrid[global.characterX][global.characterY][global.numberOfSteps] == 22) || (global.playgrid[global.characterX][global.characterY][global.numberOfSteps] == 25)){
+        global.playgrid[global.characterX][global.characterY][global.numberOfSteps] -= 15
+        global.playgrid[global.characterX + global.dx][global.characterY + global.dy][global.numberOfSteps] += 15
+    }
+
+
+//check for illegal board situations
+isPlayable = true
+for (i = 0; i < 10; i++){
+    for(j = 0; j < 10; j++){
+        switch global.playgrid[i][j][global.numberOfSteps]{
+            case 8: //player on wall
+            case 16: //crate on wall
+            case 30: //crate on crate
+            case 33: //crate on crate on target
+                isPlayable = false
+            break
+        } 
+    }
+}
+if !(isPlayable) {
+    global.numberOfSteps--
+    for (i = 0; i < 10; i++){
+        for(j = 0; j < 10; j++){
+            if ((global.playgrid[i][j][global.numberOfSteps]) == 7 || (global.playgrid[i][j][global.numberOfSteps] == 10)){
+                global.characterX = i
+                global.characterY = j
+            }
+        }
+    }
+}
+
+/*
 //check if we're trying to step into a wall
 if (global.playgrid[global.characterX + global.dx][global.characterY + global.dy][global.numberOfSteps] != 1) {
     
