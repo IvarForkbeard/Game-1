@@ -19,18 +19,14 @@ for (i = 0; i <= global.numberOfSteps; i++){
         break
     }
     destination = global.playgrid[global.characterX + global.dx][global.characterY + global.dy][i]
-    if ((destination == 0) or (destination == 4)){
-        global.playgrid[global.characterX][global.characterY][i] -= 8
+    if ((destination == 0) or (destination == 3)){
+        global.playgrid[global.characterX][global.characterY][i] -= 7
         global.characterX += global.dx
         global.characterY += global.dy
-        global.playgrid[global.characterX][global.characterY][i] += 8
-        switch(irandom(3)){
-            case 0:
-                if ((global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 2) || (global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 6)){
-                    global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] -= 2
-                    global.playgrid[global.characterX - global.dx][global.characterY - global.dy][i] += 2
-                }
-            break
+        global.playgrid[global.characterX][global.characterY][i] += 7
+        if ((global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 15) || (global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 18)){
+            global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] -= 15
+            global.playgrid[global.characterX - global.dx][global.characterY - global.dy][i] += 15
         }
     }
     for (j = 0; j < 10; j++){

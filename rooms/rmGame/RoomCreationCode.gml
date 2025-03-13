@@ -1,6 +1,6 @@
 global.numberOfBoxes = 1 + ceil((global.level / 9) * 3)
 
-// # = wall - = floor @ = player $ = box . = target * = box on target & = player on target
+// 1 = wall, 3 = target, 7 = player, 15 = crate
 
 // create global.playgrid
 for (i = 0; i < 10; i++){
@@ -49,7 +49,7 @@ while (!playerHasBeenPlaced){
     global.characterX = irandom(7) + 1
     global.characterY = irandom(7) + 1
     if (global.playgrid[global.characterX][global.characterY][0] == 0){
-        global.playgrid[global.characterX][global.characterY][0] = 8
+        global.playgrid[global.characterX][global.characterY][0] = 7
         playerHasBeenPlaced = true
     }
 }
@@ -60,7 +60,7 @@ while (i < global.numberOfBoxes){
     targetX = irandom(7) + 1
     targetY = irandom(7) + 1
     if (global.playgrid[targetX][targetY][0] == 0){
-        global.playgrid[targetX][targetY][0]+= 6
+        global.playgrid[targetX][targetY][0]+= 18
         i++
     }
 }
@@ -69,16 +69,16 @@ while (i < global.numberOfBoxes){
 for (i = 0; i < 10; i++){
     for (j = 0; j < 10; j++){
         switch(global.playgrid[i][j][0]){
-            case 1:
+            case 1: //wall
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objWall)
             break
-            case 4:
+            case 3: //target
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objTarget)
             break
-            case 6:
+            case 10: //target (plus player)
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objTarget)
             break
-            case 12:
+            case 18: //target (plus crate)
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objTarget)
             break
         }
