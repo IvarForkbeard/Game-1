@@ -24,9 +24,13 @@ for (i = 0; i <= global.numberOfSteps; i++){
         global.characterX += global.dx
         global.characterY += global.dy
         global.playgrid[global.characterX][global.characterY][i] += 8
-        if ((global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 2) || (global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 6)){
-            global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] -= 2
-            global.playgrid[global.characterX - global.dx][global.characterY - global.dy][i] += 2
+        switch(irandom(3)){
+            case 0:
+                if ((global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 2) || (global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 6)){
+                    global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] -= 2
+                    global.playgrid[global.characterX - global.dx][global.characterY - global.dy][i] += 2
+                }
+            break
         }
     }
     for (j = 0; j < 10; j++){

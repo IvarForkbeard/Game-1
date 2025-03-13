@@ -14,7 +14,7 @@ i = 1
 pathX = irandom(7) + 1
 pathY = irandom(7) + 1
 global.playgrid[pathX][pathY][0] = 0
-while (i < global.level + 20){
+while ((i < global.level + 20) && (i < 64)){
     switch(irandom(3)){
         case 0:
             if (pathY > 1){
