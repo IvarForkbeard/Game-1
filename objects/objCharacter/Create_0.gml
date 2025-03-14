@@ -1,7 +1,7 @@
 //player pulls blocks around randomly to set up playable surface
 spacePause = 0
 global.numberOfSteps = 999
-for (i = 0; i <= global.numberOfSteps; i++){
+for (i = 0; i <= global.numberOfSteps; i ++){
     global.dx = 0
     global.dy = 0
     switch(irandom(3)){
@@ -19,18 +19,19 @@ for (i = 0; i <= global.numberOfSteps; i++){
         break
     }
     destination = global.playgrid[global.characterX + global.dx][global.characterY + global.dy][i]
-    if ((destination == 0) or (destination == 3)){
-        global.playgrid[global.characterX][global.characterY][i] -= 7
+    if ((destination == 0) or (destination == entity.target)){
+        global.playgrid[global.characterX][global.characterY][i] -= entity.player
         global.characterX += global.dx
         global.characterY += global.dy
-        global.playgrid[global.characterX][global.characterY][i] += 7
-        if ((global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 15) || (global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == 18)){
-            global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] -= 15
-            global.playgrid[global.characterX - global.dx][global.characterY - global.dy][i] += 15
+        global.playgrid[global.characterX][global.characterY][i] += entity.player
+        if (((global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == entity.crate)) ||
+                (global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] == (entity.crate + entity.target))){
+            global.playgrid[global.characterX - (global.dx * 2)][global.characterY - (global.dy * 2)][i] -= entity.crate
+            global.playgrid[global.characterX - global.dx][global.characterY - global.dy][i] += entity.crate
         }
     }
-    for (j = 0; j < 10; j++){
-        for (k = 0; k < 10; k++){
+    for (j = 0; j < 10; j ++){
+        for (k = 0; k < 10; k ++){
             global.playgrid[j][k][i + 1] = global.playgrid[j][k][i]
         }
     }

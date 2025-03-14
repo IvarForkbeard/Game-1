@@ -7,9 +7,9 @@ draw_self()
 instance_destroy(objCrate)
 
 //draw the crates
-for (i = 0; i < 10; i++){
-    for (j = 0; j < 10;  j++){
-        if ((global.playgrid[i][j][global.numberOfSteps] == 15) || (global.playgrid[i][j][global.numberOfSteps] = 18)){
+for (i = 0; i < 10; i ++){
+    for (j = 0; j < 10;  j ++){
+        if ((global.playgrid[i][j][global.numberOfSteps] == entity.crate) || (global.playgrid[i][j][global.numberOfSteps] = (entity.crate + entity.target))){
             instance_create_layer(32 + (i * 64), 32 + (j * 64), "Instances", objCrate)
         }
     }

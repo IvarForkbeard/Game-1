@@ -1,11 +1,16 @@
 global.numberOfBoxes = 1 + ceil((global.level / 9) * 3)
 
 // 1 = wall, 3 = target, 7 = player, 15 = crate
-
+enum entity {
+wall = 1,
+target = 3,
+player = 7,
+crate = 15
+}
 // create global.playgrid
-for (i = 0; i < 10; i++){
-    for (j = 0; j < 10; j++){
-        global.playgrid[i][j][0] = 1
+for (i = 0; i < 10; i ++){
+    for (j = 0; j < 10; j ++){
+        global.playgrid[i][j][0] = entity.wall
     }
 }
 
@@ -18,28 +23,28 @@ while ((i < global.level + 20) && (i < 64)){
     switch(irandom(3)){
         case 0:
             if (pathY > 1){
-                pathY--
+                pathY --
             }
         break
         case 1:
             if (pathX > 1){
-                pathX--
+                pathX --
             }
         break
         case 2:
             if (pathY < 8){
-                pathY++
+                pathY ++
             }
         break
         case 3:
             if (pathX < 8){
-                pathX++
+                pathX ++
             }
         break
     }
-    if (global.playgrid[pathX][pathY][0] == 1){
+    if (global.playgrid[pathX][pathY][0] == entity.wall){
         global.playgrid[pathX][pathY][0] = 0
-        i++
+        i ++
     }
 }
 
@@ -49,7 +54,7 @@ while (!playerHasBeenPlaced){
     global.characterX = irandom(7) + 1
     global.characterY = irandom(7) + 1
     if (global.playgrid[global.characterX][global.characterY][0] == 0){
-        global.playgrid[global.characterX][global.characterY][0] = 7
+        global.playgrid[global.characterX][global.characterY][0] = entity.player
         playerHasBeenPlaced = true
     }
 }
@@ -60,25 +65,25 @@ while (i < global.numberOfBoxes){
     targetX = irandom(7) + 1
     targetY = irandom(7) + 1
     if (global.playgrid[targetX][targetY][0] == 0){
-        global.playgrid[targetX][targetY][0]+= 18
-        i++
+        global.playgrid[targetX][targetY][0] += (entity.target + entity.crate)
+        i ++
     }
 }
 
 //now put actual objects onto the play surface except crates, which are redrawn every clock cycle
-for (i = 0; i < 10; i++){
-    for (j = 0; j < 10; j++){
+for (i = 0; i < 10; i ++){
+    for (j = 0; j < 10; j ++){
         switch(global.playgrid[i][j][0]){
-            case 1: //wall
+            case entity.wall:
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objWall)
             break
-            case 3: //target
+            case entity.target:
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objTarget)
             break
-            case 10: //target (plus player)
+            case (entity.target + entity.player):
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objTarget)
             break
-            case 18: //target (plus crate)
+            case (entity.target + entity.crate):
                 instance_create_layer(i * 64 + 32, j * 64 + 32, "Instances", objTarget)
             break
         }

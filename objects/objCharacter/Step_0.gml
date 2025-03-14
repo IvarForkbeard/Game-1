@@ -1,8 +1,8 @@
 // Calculate if the puzzle is complete by seeing if there are any targets either empty, or with a player on them
 global.puzzleComplete = true
-for (i = 0; i < 10; i++){
-    for (j = 0; j < 10; j++){
-        if (global.playgrid[i][j][global.numberOfSteps] == 3 || global.playgrid[i][j][global.numberOfSteps] == 10){
+for (i = 0; i < 10; i ++){
+    for (j = 0; j < 10; j ++){
+        if (global.playgrid[i][j][global.numberOfSteps] == entity.target || global.playgrid[i][j][global.numberOfSteps] == (entity.target + entity.player)){
             global.puzzleComplete = false
         }
     }
@@ -11,7 +11,7 @@ for (i = 0; i < 10; i++){
 // Increment level if the puzzle is complete due to player interaction, just restart if not.
 if (global.puzzleComplete) {
     if (global.hasMoved){
-        global.level++
+        global.level ++
         audio_play_sound(golfClap6, 4, false)
     }
     room_restart()
