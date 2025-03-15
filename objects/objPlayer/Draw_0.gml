@@ -1,16 +1,17 @@
 // Position player
-x = global.characterX * global.gridSize
-y = global.characterY * global.gridSize
+x = global.playerX * global.gridSize
+y = global.playerY * global.gridSize
 draw_self()
 
 //destroy all crates
 instance_destroy(objCrate)
 
-//draw the crates
+//instantiates the crates
 for (i = 0; i < 10; i ++){
     for (j = 0; j < 10;  j ++){
-        if ((global.playgrid[i][j][global.numberOfSteps] == entity.crate) || (global.playgrid[i][j][global.numberOfSteps] = (entity.crate + entity.target))){
-            instance_create_layer(32 + (i * 64), 32 + (j * 64), "Instances", objCrate)
+        if global.playgrid[i][j][global.numberOfSteps] == entity.crate
+        || global.playgrid[i][j][global.numberOfSteps] = entity.crate + entity.target{
+            instance_create_layer(i * 64, j * 64, "Instances", objCrate)
         }
     }
 }
@@ -24,7 +25,7 @@ draw_text(320, 580, "Stephen's Happy Fun Time Game Level: " + string(global.leve
 draw_text(320, 610, "Steps: " + string(global.numberOfSteps - 999))
 
 //draw the text of some variables
-//draw_text(320, 32, "Here's X, Y, dX, dY :" + string (global.characterX) + ", " + string (global.characterY) + ", " + string (global.dx) + ", " + string (global.dy))
+//draw_text(320, 32, "Here's X, Y, dX, dY :" + string (global.playerX) + ", " + string (global.playerY) + ", " + string (global.dx) + ", " + string (global.dy))
 
 //draw the playGrid array for debugging.  Comment or uncomment as required.
 /*
